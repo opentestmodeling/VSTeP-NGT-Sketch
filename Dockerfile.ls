@@ -6,8 +6,8 @@ COPY org.opentestmodeling.vstep.ngt.sketch.parent/ /apps/
 WORKDIR /apps
 RUN mvn clean install -DskipTests
 
-RUN mkdir source/
-RUN cp org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar source/
+RUN mkdir sources/
+RUN cp org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar sources/
 RUN rm org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar
 
 FROM openjdk:8
@@ -15,7 +15,7 @@ FROM openjdk:8
 RUN sudo apt-get install socat -y
 
 WORKDIR /apps
-COPY --from=builder sources/*.jar ./source/
+COPY --from=builder sources/*.jar ./sources/
 COPY --from=builder org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./
 
 EXPOSE 4417
