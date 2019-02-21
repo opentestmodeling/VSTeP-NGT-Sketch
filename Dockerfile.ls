@@ -6,6 +6,7 @@ COPY org.opentestmodeling.vstep.ngt.sketch.parent/ /apps/
 WORKDIR /apps
 RUN mvn clean install -DskipTests
 
+RUN mkdir source/
 RUN cp org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar source/
 RUN rm org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar
 
