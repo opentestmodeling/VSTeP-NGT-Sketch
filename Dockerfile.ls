@@ -12,7 +12,7 @@ RUN rm org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar
 
 FROM openjdk:8
 
-RUN sudo apt-get install socat -y
+RUN apt-get install socat -y
 
 WORKDIR /apps
 COPY --from=builder sources/*.jar ./sources/
