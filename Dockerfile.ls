@@ -18,6 +18,6 @@ WORKDIR /apps
 COPY --from=builder sources/*.jar ./source/
 COPY --from=builder org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./
 
-EXPOSE 4471
+EXPOSE 4417
 
 CMD socat TCP4-LISTEN:4417,reuseaddr,fork EXEC:"java -jar /apps/*.jar"
