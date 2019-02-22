@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install socat -y
 
 WORKDIR /apps
 COPY --from=builder /apps/sources/*.jar ./sources/
-COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./
+COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./server.jar
 
 EXPOSE 4418
 
-CMD socat TCP4-LISTEN:4418,reuseaddr,fork EXEC:"java -jar /apps/*.jar"
+CMD socat TCP4-LISTEN:4418,reuseaddr,fork EXEC:"java -jar /apps/.jar"
