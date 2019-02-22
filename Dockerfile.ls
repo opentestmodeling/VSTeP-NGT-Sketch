@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install socat -y
 
 WORKDIR /apps
 COPY --from=builder /apps/sources/*.jar ./sources/
-COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./server.jar
+COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./
+RUN ln -s *.jar server.jar
 
 EXPOSE 4418
 
