@@ -20,4 +20,4 @@ COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar
 
 EXPOSE 4418
 
-CMD socat TCP4-LISTEN:4418,reuseaddr,fork EXEC:"java -jar /apps/.jar"
+CMD socat TCP4-LISTEN:4418,reuseaddr,fork EXEC:"java -jar /apps/server.jar"
