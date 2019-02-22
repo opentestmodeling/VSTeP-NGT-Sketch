@@ -15,8 +15,8 @@ FROM openjdk:8
 RUN apt-get update && apt-get install socat -y
 
 WORKDIR /apps
-COPY --from=builder sources/*.jar ./sources/
-COPY --from=builder org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./
+COPY --from=builder /apps/sources/*.jar ./sources/
+COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*.jar ./
 
 EXPOSE 4417
 
