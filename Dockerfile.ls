@@ -16,6 +16,6 @@ RUN mkdir -p sources/
 COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*-sources.jar ./sources/
 COPY --from=builder /apps/org.opentestmodeling.vstep.ngt.sketch.ide/target/*-ls.jar ./
 RUN ln -s *.jar server.jar
-EXPOSE 4417
+EXPOSE 4418
 
-CMD socat TCP4-LISTEN:4417,reuseaddr,fork EXEC:"java -jar /apps/server.jar"
+CMD socat TCP4-LISTEN:4418,reuseaddr,fork EXEC:"java -jar /apps/server.jar"
