@@ -2,3 +2,4 @@ target/
 src-gen/
 xtend-gen/
 generated/
+plugin.xml_gen
