@@ -1,0 +1,30 @@
+specVersion: 0.0.1
+name: VSTeP-NGT-Sketch
+projects:
+  - name: VSTeP-NGT-Sketch
+    source:
+      type: git
+      location: https://github.com/OpenTestModeling/VSTeP-NGT-Sketch.git
+components:
+  - type: cheEditor
+    id: eclipse/che-theia/next
+  - type: chePlugin
+    id: eclipse/che-machine-exec-plugin/0.0.1
+  - alias: workspace
+    env:
+      - name: MAVEN_OPTS
+        value: '-Xmx2048m'
+    type: dockerimage
+    image: camino.azurecr.io/eclipse/che-dev:nightly
+    memoryLimit: 2Gi
+    volumes:
+    - containerPath: /projects
+      name: projects
+    - containerPath: /home/user/.m2
+      name: maven
+commands:
+  - name: "build"
+    actions:
+      - type: exec
+        component: workspace
+        command: cd ${CHE_PROJECTS_ROOT}/VSTeP-NGT-Sketch/org.opentestmodeling.vstep.ngt.sketch.parent && mvn install
