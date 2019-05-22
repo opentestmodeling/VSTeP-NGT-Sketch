@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/opentestmodeling/VSTeP-NGT/_apis/build/status/opentestmodeling.VSTeP-NGT-Sketch?branchName=master)](https://dev.azure.com/opentestmodeling/VSTeP-NGT/_build/latest?definitionId=2&branchName=master)
+
 # VSTeP-NGT-Sketch
 DSL for rapid modeling with VSTeP/NGT.
 
