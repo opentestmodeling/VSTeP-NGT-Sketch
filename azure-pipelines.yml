@@ -20,3 +20,13 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+  displayName: 'Build with Maven'
+
+- script: curl -o- -L https://yarnpkg.com/install.sh | bash
+  displayName: 'Install Yarn'
+
+- script: |
+    yarn
+    sudo npm install -g vsce
+    vsce package
+  workingDirectory: vscode-extension-self-contained
