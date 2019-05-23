@@ -1,0 +1,71 @@
+{
+    "name": "vstep-ngt-sketch-vscode-extension",
+    "displayName": "VSTeP/NGT Sketch DSL Extension",
+    "description": "VSTeP/NGT Sketch DSL for VS Code",
+    "version": "0.0.0",
+    "publisher": "OpenTestModelingInitiative",
+    "icon": "images/optemi.png",
+    "license": "EPL-1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/OpenTestModeling/VSTePNGT-Sketch.git"
+    },
+    "bugs": {
+        "url": "https://github.com/OpenTestModeling/VSTePNGT-Sketch/issues"
+    },
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:vstepngtsketch"
+    ],
+    "main": "out/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "vstepngtsketch",
+                "aliases": [
+                    "vstepngtsketch"
+                ],
+                "extensions": [
+                    ".vstepngtsketch"
+                ],
+                "configuration": "./vstepngtsketch.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "vstepngtsketch",
+                "scopeName": "text.vstepngtsketch",
+                "path": "./syntaxes/vstepngtsketch.tmLanguage.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "vstepngtsketch.a.proxy",
+                "title": "VSTeP/NGT Sketch Command A"
+            },
+            {
+                "command": "vstepngtsketch.b",
+                "title": "VSTeP/NGT Sketch Command B"
+            }
+        ]
+    },
+    "devDependencies": {
+        "vscode": "^1.1.33",
+        "typescript": "^3.3.400",
+        "@types/node": "^11.13.2"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^5.2.1"
+    },
+    "scripts": {
+        "prepublish": "cp ../org.opentestmodeling.vstep.ngt.sketch.parent/org.opentestmodeling.vstep.ngt.sketch.ide/target/org.*-ls.jar ./src/ide.jar && node ./node_modules/vscode/bin/install && tsc -p ./src",
+        "compile": "tsc -p ./src",
+        "watch": "tsc -w -p ./src",
+        "update-vscode": "node ./node_modules/vscode/bin/install"
+    }
+}
