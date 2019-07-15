@@ -17,4 +17,4 @@ FROM jetty:9.4.18-jre8
 
 WORKDIR $JETTY_BASE
 
-COPY --from=build /apps/org.opentestmodeling.vstep.ngt.sketch.web/target/org.opentestmodeling.vstep.ngt.sketch.web-0.0.1-SNAPSHOT.war webapps/ROOT.war
+COPY --from=build /apps/org.opentestmodeling.vstep.ngt.sketch.web/target/org.opentestmodeling.vstep.ngt.sketch.web-1.0.0-SNAPSHOT.war webapps/ROOT.war
